@@ -8,8 +8,7 @@ const router = Router();
 router.use(basicAuth);
 
 router.route("/registrations").get(registrationController.getUserInfo);
-router.route("/registrations")
-.post(
+router.route("/registrations").post(
 // validateRegistrationFormSchema(),
 // validatePayload,
 registrationController.registration);
