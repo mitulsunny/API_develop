@@ -1,5 +1,6 @@
 import {Request, Response, NextFunction} from "express";
 import log from '../loggers';
+import {Students} from "../models/registrationFormSchema";
 
 class RegistrationController{
     public async getUserInfo(req: Request, res: Response, next: NextFunction){
@@ -9,8 +10,16 @@ class RegistrationController{
     }
 
     public async registration(req: Request, res: Response, next: NextFunction){
-
-     res.json({"user":"working"});
+        Students.create(req.body, (err,createdUser)=>{
+            if(err){
+                console.log("err:",err)
+                next();
+            }else{
+                log.info("One user have been created!!")
+            res.status(201).json({"message":"New user hase been added"});
+            }
+        });
+     
     }
 }
 export default new RegistrationController();
