@@ -2,11 +2,11 @@
   "name": "registrations-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "",
     "dev": "nodemon --config nodemon.json src/app.ts",
-    "start": "node index.js"
+    "start": "node src/index.js"
   },
   "keywords": [],
   "author": "",
