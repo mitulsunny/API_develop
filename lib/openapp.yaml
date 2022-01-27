@@ -1,0 +1,45 @@
+openapi: "3.0.0"
+info:
+  title: "OSA's students api"
+  description: "This api will provide the access to all students and added delete and update students"
+  version: 1.0.0
+  contact:
+    email: "mitul.li@yahoo.com"
+  license:
+    name: "Apache 2.0"
+# security:
+#   - basicAuth: []
+paths:
+ '/students/registrations':
+  post:
+    tags:
+      - registrations
+    summary: "add a new students"
+    description: "the payload will be provided as json and need to add in the mongodb"
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Forms'
+    responses:
+      200:
+        description: "successful operation"
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+components:
+  schemas:
+    Forms:
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+
+
